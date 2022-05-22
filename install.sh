@@ -25,8 +25,8 @@ cp -r ./.config/kitty $dotconfig
 cp -r ./.config/awesome $dotconfig
 cp -r ./.config/starship $dotconfig
 
+cd $dotconfig
 if [[ -d "$dotconfig/nvim" ]]; then
-  cd $dotconfig
   echo -n ".config/nvim exists do you want to pull changes instead? [Y/n] "
   read input
 
@@ -38,6 +38,8 @@ if [[ -d "$dotconfig/nvim" ]]; then
     cd nvim
     git pull
   fi
+else
+  git clone https://github.com/0ql/LunarVim.git nvim
 fi
 cd $repodir
 
