@@ -38,6 +38,7 @@ if [[ -d "$dotconfig/nvim" ]]; then
     cd nvim
     git pull
   fi
+  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 fi
 cd $repodir
 
