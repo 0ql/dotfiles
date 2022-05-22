@@ -38,7 +38,7 @@ if [[ $input == "y" ]]; then
   cp .xinitrc /home/$USER/.xinitrc
 fi
 
-echo -n "Install .profile .bashrc .bash_profile? [y/N]"
+echo -n "Install .profile .bashrc .bash_profile? [y/N] "
 read input
 
 if [[ $input == "y" ]]; then
@@ -54,4 +54,4 @@ if [[ $input != "y" ]]; then
   exit
 fi
 
-sudo pacman --noconfirm -S kitty zsh awesome starship neovim xorg-xinit xorg-server exa bat zsh-syntax-highlighting zsh-autosuggestions
+sudo pacman --noconfirm -S kitty zsh awesome starship neovim xorg-xinit xorg-server exa bat zsh-syntax-highlighting zsh-autosuggestions ttf-iosevka-nerd
