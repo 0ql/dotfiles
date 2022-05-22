@@ -45,7 +45,8 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/home/kaffee/.config/awesome/themes/kaffee/theme.lua")
+local username = os.getenv("USER")
+beautiful.init("/home/" .. username .. "/.config/awesome/themes/kaffee/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
