@@ -24,6 +24,11 @@ cp -r ./.config/kitty $dotconfig
 cp -r ./.config/awesome $dotconfig
 cp -r ./.config/starship $dotconfig
 
+if [[ -d "$dotconfig/nvim" ]]; then
+  echo "Removing ~/.config/nvim directory..."
+  rm -rf "$dotconfig/nvim"
+fi
+
 cd $dotconfig
 git clone https://github.com/0ql/LunarVim.git nvim
 
