@@ -29,14 +29,13 @@ if [[ -d "$dotconfig/nvim" ]]; then
   rm -rf "$dotconfig/nvim"
 fi
 
-cd $dotconfig
-git clone https://github.com/0ql/LunarVim.git nvim
+git clone https://github.com/0ql/LunarVim.git "$dotconfig/nvim"
 
 echo -n "Install .xinitrc File? [y/N] "
 read input
 
 if [[ $input == "y" ]]; then
-  cp ./.xinitrc /home/$USER/.xinitrc
+  cp .xinitrc /home/$USER/.xinitrc
 fi
 
 echo -n "Install .profile .bashrc .bash_profile? [y/N]"
