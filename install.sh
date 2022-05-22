@@ -27,11 +27,25 @@ cp ./.config/starship $dotconfig
 cd $dotconfig
 git clone https://github.com/0ql/LunarVim.git nvim
 
-echo -n "Install required software? ArchLinux only (requires pacman) [y/N] "
+echo -n "Install .xinitrc File? [y/N] "
+
+if [[ $input == "y" ]]; then
+  cp ./.xinitrc /home/$USER/.xinitrc
+fi
+
+echo -n "Install .profile .bashrc .bash_profile? [y/N]"
+
+if [[ $input == "y" ]]; then
+  cp ./.profile /home/$USER
+  cp ./.bashrc /home/$USER
+  cp ./.bash_profile /home/$USER
+fi
+
+echo -n "(Re)install required software? ArchLinux only (requires pacman) [y/N] "
 read input
 
 if [[ $input != "y" ]]; then
   exit
 fi
 
-sudo pacman --noconfirm -S kitty zsh awesome starship neovim
+sudo pacman --noconfirm -S kitty zsh awesome starship neovim xorg-xinit xorg-server
