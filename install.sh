@@ -38,9 +38,9 @@ echo -n "Install .profile .bashrc .bash_profile? [y/N]"
 read input
 
 if [[ $input == "y" ]]; then
-  cp ./.profile /home/$USER
-  cp ./.bashrc /home/$USER
-  cp ./.bash_profile /home/$USER
+  cp .profile /home/$USER
+  cp .bashrc /home/$USER
+  cp .bash_profile /home/$USER
 fi
 
 echo -n "(Re)install required software? ArchLinux only (requires pacman) [y/N] "
