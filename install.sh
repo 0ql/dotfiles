@@ -19,21 +19,23 @@ if [[ ! -d "./.config" || ! -d "../dotfiles" ]]; then
   exit
 fi
 
-cp ./.config/zsh $dotconfig
-cp ./.config/kitty $dotconfig
-cp ./.config/awesome $dotconfig
-cp ./.config/starship $dotconfig
+cp -r ./.config/zsh $dotconfig
+cp -r ./.config/kitty $dotconfig
+cp -r ./.config/awesome $dotconfig
+cp -r ./.config/starship $dotconfig
 
 cd $dotconfig
 git clone https://github.com/0ql/LunarVim.git nvim
 
 echo -n "Install .xinitrc File? [y/N] "
+read input
 
 if [[ $input == "y" ]]; then
   cp ./.xinitrc /home/$USER/.xinitrc
 fi
 
 echo -n "Install .profile .bashrc .bash_profile? [y/N]"
+read input
 
 if [[ $input == "y" ]]; then
   cp ./.profile /home/$USER
