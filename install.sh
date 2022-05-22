@@ -8,15 +8,16 @@ if [[ $input != "y" ]]; then
   exit
 fi
 
+if [[ ! -d "./.config" || ! -d "../dotfiles" ]]; then
+  echo "Please run the script in the repo directory."
+  exit
+fi
+
+repodir=$PWD
 dotconfig="/home/$USER/.config"
 
 if [[ ! -d $dotconfig ]]; then
   mkdir $dotconfig
-fi
-
-if [[ ! -d "./.config" || ! -d "../dotfiles" ]]; then
-  echo "Please run the script in the repo directory."
-  exit
 fi
 
 cp -r ./.config/zsh $dotconfig
@@ -25,11 +26,20 @@ cp -r ./.config/awesome $dotconfig
 cp -r ./.config/starship $dotconfig
 
 if [[ -d "$dotconfig/nvim" ]]; then
-  echo "Removing ~/.config/nvim directory..."
-  rm -rf "$dotconfig/nvim"
-fi
+  cd $dotconfig
+  echo -n ".config/nvim exists do you want to pull changes instead? [Y/n] "
+  read input
 
-git clone https://github.com/0ql/LunarVim.git "$dotconfig/nvim"
+  if [[ $input == "n" ]]; then
+    echo "Removing ~/.config/nvim directory..."
+    rm -rf nvim
+    git clone https://github.com/0ql/LunarVim.git nvim
+  else
+    cd nvim
+    git pull
+  fi
+fi
+cd $repodir
 
 echo -n "Install .xinitrc File? [y/N] "
 read input
@@ -54,4 +64,4 @@ if [[ $input != "y" ]]; then
   exit
 fi
 
-sudo pacman --noconfirm -S kitty zsh awesome starship neovim xorg-xinit xorg-server exa bat zsh-syntax-highlighting zsh-autosuggestions ttf-iosevka-nerd
+sudo pacman --noconfirm -S kitty zsh awesome starship neovim xorg-xinit xorg-server exa bat zsh-syntax-highlighting zsh-autosuggestions ttf-iosevka-nerd 
