@@ -1,9 +1,14 @@
 #!/bin/bash
 
-echo -n "Enter your zoneinfo directory (/usr/share/zoneinfo/...): "
-read input
+ls -D /usr/share/zoneinfo
+echo -n "Choose the country/continent you live in: "
+read country
 
-ln -sf $input /etc/localtime
+ls /usr/share/zoneinfo/$country
+echo -n "Choose the city that belongs to your timezone: "
+read city
+
+ln -sf /usr/share/zoneinfo/$country/$city /etc/localtime
 hwclock --systohc
 sed -i '178s/.//' /etc/locale.gen
 locale-gen
@@ -54,6 +59,7 @@ if [[ $input == y ]]; then
     sudo pacman -S --noconfirm git
     cd /home/$username
     git clone https://github.com/0ql/dotfiles.git
+    sudo chown -R $username dotfiles
   fi
 fi
 
