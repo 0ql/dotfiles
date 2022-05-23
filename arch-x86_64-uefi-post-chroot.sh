@@ -1,35 +1,5 @@
 #!/bin/bash
 
-if [[ ! -d ./arch-x86_64-uefi-install.sh ]]; then
-  echo "Please run the script in the same directory as the .sh file."
-  exit
-fi
-
-echo -n "Already running in arch-chroot? [Y/n] "
-read input
-if [[ $input == n ]]; then
-  timedatectl set-ntp true
-  fdisk -l
-  echo -n "Enter the disk path you want to format (/dev/Xda): "
-  read input
-  fdisk $input
-  echo -n "Enter the EFI disk partition path (/dev/Xda): "
-  read efipartition
-  mkfs.fat -F32 $efipartition
-  echo -n "Enter the Linux Filesystem disk partition path (/dev/Xda): "
-  read input
-  mkfs.ext4 $input
-  mount $input /mnt
-  pacstrap /mnt base linux linux-firmware sudo
-  genfstab -U /mnt >> /mnt/etc/fstab
-  mv ./arch-x86_64-uefi-install.sh /mnt
-  (
-    echo sudo bash arch-x86_64-uefi-install.sh
-    echo y
-  ) | arch-chroot /mnt
-  exit
-fi
-
 echo -n "Enter your zoneinfo directory (/usr/share/zoneinfo/...): "
 read input
 
