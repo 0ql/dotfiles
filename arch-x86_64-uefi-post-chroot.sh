@@ -51,6 +51,7 @@ if [[ $input == y ]]; then
   read input
 
   if [[ $input == y ]]; then
+    sudo pacman -S --noconfirm git
     cd /home/$username
     git clone https://github.com/0ql/dotfiles.git
   fi
