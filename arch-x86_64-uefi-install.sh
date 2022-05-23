@@ -14,7 +14,7 @@ if [[ $input == n ]]; then
   echo -n "Enter the Linux Filesystem disk partition path (/dev/Xda): "
   read input
   mkfs.ext4 $input
-  mount $efipartition /mnt
+  mount $input /mnt
   pacstrap /mnt base linux linux-firmware sudo
   genfstab -U /mnt >> /mnt/etc/fstab
   arch-chroot /mnt
