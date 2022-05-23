@@ -21,7 +21,7 @@ pacman -S --noconfirm grub efibootmgr networkmanager base-devel openssh os-probe
 # pacman -S --noconfirm nvidia nvidia-utils nvidia-settings
 
 echo -n "Enter efi directory (/dev/Xda): "
-read $input
+read input
 
 mount --mkdir $input /mnt/boot
 
