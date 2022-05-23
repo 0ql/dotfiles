@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ ! -d ./arch-x86_64-uefi-install.sh ]]; then
+  echo "Please run the script in the same directory as the .sh file."
+  exit
+fi
+
 echo -n "Already running in arch-chroot? [Y/n] "
 read input
 if [[ $input == n ]]; then
@@ -17,7 +22,12 @@ if [[ $input == n ]]; then
   mount $input /mnt
   pacstrap /mnt base linux linux-firmware sudo
   genfstab -U /mnt >> /mnt/etc/fstab
-  arch-chroot /mnt
+  mv ./arch-x86_64-uefi-install.sh /mnt
+  (
+    echo sudo bash arch-x86_64-uefi-install.sh
+    echo y
+  ) | arch-chroot /mnt
+  exit
 fi
 
 echo -n "Enter your zoneinfo directory (/usr/share/zoneinfo/...): "
