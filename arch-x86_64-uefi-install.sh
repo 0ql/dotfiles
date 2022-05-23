@@ -20,7 +20,12 @@ pacman -S --noconfirm grub efibootmgr networkmanager base-devel openssh os-probe
 # pacman -S --noconfirm xf86-video-amdgpu
 # pacman -S --noconfirm nvidia nvidia-utils nvidia-settings
 
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB #change the directory to /boot/efi is you mounted the EFI partition at /boot/efi
+echo -n "Enter efi directory (/dev/Xda): "
+read $input
+
+mount --mkdir $input /mnt/boot
+
+grub-install --target=x86_64-efi --efi-directory=/mnt/boot --bootloader-id=GRUB
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
