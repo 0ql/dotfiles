@@ -1,0 +1,50 @@
+inputbar {
+  children: [entry];
+}
+entry {
+  placeholder: "Type here";
+  background-color: #7c6f64;
+  text-color: #ebdbb2;
+  padding: 12px;
+}
+element {
+  orientation: horizontal;
+  children: [ element-text ];
+  text-color: #ebdbb2;
+  background-color: #3c3836;
+  margin: 0px;
+  border: 0px;
+  border-color: #7c6f64;
+}
+element-text {
+  /* dark1 = "#3c3836", */
+  /* dark2 = "#504945", */
+  /* dark3 = "#665c54", */
+  /* dark4 = "#7c6f64", */
+  /* light1 = "#ebdbb2", */
+  /* light2 = "#d5c4a1", */
+  /* light3 = "#bdae93", */
+  /* light4 = "#a89984", */
+  text-color: #ebdbb2;
+  background-color: #3c3836;
+  padding: 6px;
+  margin: 0px;
+  border: 0px;
+  border-color: #7c6f64;
+}
+window {
+  width: 40%;
+  transparency: "background";
+}
+listview {
+  background-color: #3c3836;
+  spacing: 0px;
+}
+mainbox {
+  spacing: 0px;
+}
+textbox {
+  padding: 6px;
+  text-color: #ebdbb2;
+  background-color: #3c3836;
+}

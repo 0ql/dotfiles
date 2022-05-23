@@ -1,11 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-echo "This will override ~/.config/[ awesome, nvim, starship, zsh, kitty]."
-echo -n "Are you sure you want to proceed? [y/N] "
-read input
+if [[ ! $1 == -u ]]; then
+  echo "This will override ~/.config/[ awesome, nvim, starship, zsh, kitty]."
+  echo -n "Are you sure you want to proceed? [y/N] "
+  read input
 
-if [[ $input != "y" ]]; then
-  exit
+  if [[ $input != "y" ]]; then
+    exit
+  fi
+else
+  echo "Updateing..."
 fi
 
 if [[ ! -d "./.config" || ! -d "../dotfiles" ]]; then
@@ -24,11 +28,14 @@ cp -r ./.config/zsh $dotconfig
 cp -r ./.config/kitty $dotconfig
 cp -r ./.config/awesome $dotconfig
 cp -r ./.config/starship $dotconfig
+cp -r ./.config/rofi $dotconfig
 
 cd $dotconfig
 if [[ -d "$dotconfig/nvim" ]]; then
-  echo -n ".config/nvim exists do you want to pull changes instead? [Y/n] "
-  read input
+  if [[ ! $1 == -u ]]; then
+    echo -n ".config/nvim exists do you want to pull changes instead? [Y/n] "
+    read input
+  fi
 
   if [[ $input == "n" ]]; then
     echo "Removing ~/.config/nvim directory..."
@@ -66,4 +73,4 @@ if [[ $input != "y" ]]; then
   exit
 fi
 
-sudo pacman --noconfirm -S kitty zsh awesome starship neovim xorg-xinit xorg-server exa bat zsh-syntax-highlighting zsh-autosuggestions ttf-iosevka-nerd 
+sudo pacman --noconfirm -S kitty zsh awesome starship neovim xorg-xinit xorg-server exa bat zsh-syntax-highlighting zsh-autosuggestions ttf-iosevka-nerd rofi 
