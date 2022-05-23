@@ -71,8 +71,10 @@ alias jctl="journalctl -p 3 -xb"
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
-# Plugins
+# MullvadVPN
+alias mullstat="mullvad status --location"
 
+# Plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
