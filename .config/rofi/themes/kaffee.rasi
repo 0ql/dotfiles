@@ -34,7 +34,7 @@ element-text {
 }
 window {
   width: 40%;
-  transparency: "background";
+  transparency: "real";
 }
 listview {
   background-color: #3c3836;
