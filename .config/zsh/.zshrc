@@ -70,6 +70,7 @@ alias mullstat="mullvad status --location"
 #git
 alias gs="git status"
 alias gp="git push"
+alias gpl="git pull"
 alias ga="git add ."
 gc() {
   git commit -m $1

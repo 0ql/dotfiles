@@ -18,10 +18,20 @@ if [[ ! -d "./.config" || ! -d "../dotfiles" ]]; then
 fi
 
 repodir=$PWD
-dotconfig="/home/$USER/.config"
+dotconfig=/home/$USER/.config
+dotcache=/home/$USER/.cache
 
 if [[ ! -d $dotconfig ]]; then
   mkdir $dotconfig
+fi
+if [[ ! -d $dotcache ]]; then
+  mkdir $dotcache
+fi
+if [[ ! -d $dotcache/zsh ]]; then
+  mkdir $dotcache/zsh
+fi
+if [[ ! -f $dotcache/zsh/history ]]; then
+  touch $dotcache/zsh/history
 fi
 
 cp -r ./.config/zsh $dotconfig
