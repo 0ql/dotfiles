@@ -2,8 +2,7 @@
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
-sysresources=/etc/X11/xinit/.Xresources
-sysmodmap=/etc/X11/xinit/.Xmodmap
+sysresources=/etc/X11/xinit/.Xresources sysmodmap=/etc/X11/xinit/.Xmodmap
 
 # merge in defaults and keymaps
 
@@ -34,4 +33,5 @@ fi
 
 # xrandr --output eDP-1 --right-of HDMI-1
 
+xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
 exec awesome
