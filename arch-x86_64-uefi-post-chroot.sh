@@ -63,6 +63,10 @@ if [[ $input == y ]]; then
   fi
 fi
 
+echo -n "Set delay before repeating characters on keypress: "
+read input
+sudo xset r rate $input
+
 cd /
 echo -n "Remove post install script? [Y/n] "
 read input
