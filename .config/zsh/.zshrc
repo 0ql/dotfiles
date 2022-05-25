@@ -83,6 +83,8 @@ alias cls="clear && ls"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+xset r rate 250
+
 eval "$(starship init zsh)"
 transset-df -a 0.9
 clear
