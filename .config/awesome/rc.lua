@@ -326,6 +326,18 @@ globalkeys = gears.table.join(
     end,
     { description = "restore minimized", group = "client" }),
 
+  awful.key({ modkey }, "Up",
+    function()
+      awful.spawn("pactl set-sink-volume alsa_output.usb-bestechnic_Samsung_USB_C_Earphone_20160406.1-00.analog-stereo +5%")
+    end
+  ),
+
+  awful.key({ modkey }, "Down",
+    function()
+      awful.spawn("pactl set-sink-volume alsa_output.usb-bestechnic_Samsung_USB_C_Earphone_20160406.1-00.analog-stereo -5%")
+    end
+  ),
+
   -- Prompt
   awful.key({ modkey }, "r", function() awful.screen.focused().mypromptbox:run() end,
     { description = "run prompt", group = "launcher" }),

@@ -67,7 +67,7 @@ alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 # MullvadVPN
 alias mullstat="mullvad status --location"
 
-#git
+# git
 alias gs="git status"
 alias gp="git push"
 alias gpl="git pull"
@@ -75,6 +75,9 @@ alias ga="git add ."
 gc() {
   git commit -m $1
 }
+
+#  convienience
+alias cls="clear && ls"
 
 # Plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
