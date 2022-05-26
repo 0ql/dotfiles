@@ -1,5 +1,3 @@
-# Created by newuser for 5.8.1
-
 autoload -U colors
 autoload -Uz compinit
 compinit
@@ -13,6 +11,16 @@ SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
 bindkey -v
+bindkey "^?" backward-delete-char
+
+# Yank to the system clipboard
+function vi-yank-xclip {
+    zle vi-yank
+   echo "$CUTBUFFER" | pbcopy -i
+}
+
+zle -N vi-yank-xclip
+bindkey -M vicmd 'y' vi-yank-xclip
 export KEYTIMEOUT=1
 
 # Replace ls with exa
@@ -83,6 +91,7 @@ alias cls="clear && ls"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# 250 mills of timeout when pressed a button
 xset r rate 250
 
 eval "$(starship init zsh)"
