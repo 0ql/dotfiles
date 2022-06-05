@@ -3,8 +3,12 @@ local wibox = require("wibox")
 local gears = require("gears")
 local beautiful = require("beautiful")
 
+local audio = require("modules/widgets/audio")
+local sys = require("modules/widgets/sys")
+
 -- Create a textclock widget
 local mytextclock = wibox.widget.textclock()
+local mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -58,11 +62,6 @@ local function set_wallpaper(s)
   end
 end
 
-myaudiosink = os.execute("pactl list sinks short | grep 'RUNNING'")
-
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
-
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
@@ -115,10 +114,16 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytasklist, -- Middle widget
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
-      mykeyboardlayout,
-      wibox.widget.systray(),
+      wibox.widget.textbox("  "),
+      awful.widget.watch('bash -c "pactl list sinks short | grep \'RUNNING\' | grep -oP \'((?<=alsa_output\\.)([^\\.])*|\\d*Hz)\' | sed -e \'s/_/ /g\' | xargs"', 3),
+      wibox.widget.textbox("  "),
+      awful.widget.watch('bash -c "sensors | grep -m 1 temp1 | grep -o \'\\+.*C\'"', 1),
+      wibox.widget.textbox("  "),
+      awful.widget.watch('bash -c "free | grep Mem | awk \'{print $3/$2 * 100.0}\'"', 1),
+      wibox.widget.textbox(" "),
       mytextclock,
-      s.mylayoutbox,
+      mykeyboardlayout,
+      -- s.mylayoutbox,
     },
   }
 end)
