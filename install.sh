@@ -83,4 +83,4 @@ if [[ $input != "y" ]]; then
   exit
 fi
 
-sudo pacman --noconfirm -S kitty zsh awesome starship neovim xorg-xinit xorg-server exa bat zsh-syntax-highlighting zsh-autosuggestions ttf-iosevka-nerd rofi xcompmgr 
+sudo pacman --noconfirm -S kitty zsh awesome starship neovim xorg-xinit xorg-server exa bat zsh-syntax-highlighting zsh-autosuggestions ttf-iosevka-nerd rofi xcompmgr ripgrep
