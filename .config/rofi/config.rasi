@@ -1,5 +1,5 @@
 configuration {
-modi: "window,run,ssh";
+modi: "window,run";
 font: "Iosevka 16";
 /*	location: 0;*/
 /*	yoffset: 0;*/
