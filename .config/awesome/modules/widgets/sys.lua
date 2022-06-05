@@ -19,6 +19,20 @@ local function cmd(c)
   return s
 end
 
+function sys.cputemp()
+  local wi = txtbox()
+
+  gears.timer {
+    timeout = 1,
+    autostart = true,
+    callback = function()
+      wi.text = string.format("%d°C", cmd("sensors | grep -m 1 temp1 | grep -o '+[^.]*'"))
+    end
+  }
+
+  return wi
+end
+
 function sys.ram()
   local wi = txtbox()
 
@@ -26,7 +40,7 @@ function sys.ram()
     timeout = 1,
     autostart = true,
     callback = function()
-      wi.text = cmd(" " .. "free | grep Mem | awk '{print $3/$2 * 100.0}'" .. " ")
+      wi.text = string.format("%d%%ram", math.floor(cmd("free | grep Mem | awk '{print $3/$2 * 100.0}'")))
     end
   }
 

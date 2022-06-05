@@ -57,7 +57,7 @@ theme.bg_focus      = palette.dark1
 theme.bg_urgent     = palette.bright_red
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
-theme.fg_normal     = "#aaaaaa"
+theme.fg_normal     = "#ffffff"
 theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
@@ -66,6 +66,8 @@ theme.border_width  = dpi(2)
 theme.border_normal = palette.dark0_soft
 theme.border_focus  = palette.light0_soft
 theme.border_marked = palette.bright_yellow
+
+theme.wibar_bg = "#ffffff00"
 
 -- There are other variable sets
 -- overriding the default one when

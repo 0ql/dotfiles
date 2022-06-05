@@ -74,6 +74,7 @@ awful.screen.connect_for_each_screen(function(s)
 
   -- Create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
+
   -- Create an imagebox widget which will contain an icon indicating which layout we're using.
   -- We need one layoutbox per screen.
   s.mylayoutbox = awful.widget.layoutbox(s)
@@ -82,18 +83,12 @@ awful.screen.connect_for_each_screen(function(s)
     awful.button({}, 3, function() awful.layout.inc(-1) end),
     awful.button({}, 4, function() awful.layout.inc(1) end),
     awful.button({}, 5, function() awful.layout.inc(-1) end)))
+
   -- Create a taglist widget
   s.mytaglist = awful.widget.taglist {
     screen  = s,
     filter  = awful.widget.taglist.filter.all,
     buttons = taglist_buttons
-  }
-
-  -- Create a tasklist widget
-  s.mytasklist = awful.widget.tasklist {
-    screen  = s,
-    filter  = awful.widget.tasklist.filter.currenttags,
-    buttons = tasklist_buttons
   }
 
   -- Create the wibox
@@ -111,15 +106,15 @@ awful.screen.connect_for_each_screen(function(s)
       s.mytaglist,
       s.mypromptbox,
     },
-    s.mytasklist, -- Middle widget
+    nil,
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       wibox.widget.textbox("  "),
       awful.widget.watch('bash -c "pactl list sinks short | grep \'RUNNING\' | grep -oP \'((?<=alsa_output\\.)([^\\.])*|\\d*Hz)\' | sed -e \'s/_/ /g\' | xargs"', 3),
       wibox.widget.textbox("  "),
-      awful.widget.watch('bash -c "sensors | grep -m 1 temp1 | grep -o \'\\+.*C\'"', 1),
+      sys.cputemp(),
       wibox.widget.textbox("  "),
-      awful.widget.watch('bash -c "free | grep Mem | awk \'{print $3/$2 * 100.0}\'"', 1),
+      sys.ram(),
       wibox.widget.textbox(" "),
       mytextclock,
       mykeyboardlayout,
