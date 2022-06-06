@@ -10,9 +10,6 @@ Personal Dotfiles with an added install script.
 - **Starship** prompt
 - **zsh** as the shell
 
-### Issues
-
-[telescope grep not working](https://github.com/nvim-telescope/telescope.nvim/issues/506)
 
 ### install.sh
 Ideally suited to run on a bare bones Arch install. Should work on most GNU / Linux distros.
@@ -29,10 +26,24 @@ git pull
 
 To install
 ```bash
-install.sh
+bash install.sh
 ```
 
-To swiftly update
+To update without confirm
 ```bash
-install.sh -u
+bash install.sh -u
 ```
+
+To install or update without overwriting .xinirc .profile .bashrc .bash_profile or installing required software
+```bash
+bash install.sh -n
+```
+
+To Update without confirm or overwiriting .xinitc .profile etc. (same as "bash install.sh -u -n")
+```bash
+up
+```
+
+### Known Issues
+
+[telescope grep not working](https://github.com/nvim-telescope/telescope.nvim/issues/506)

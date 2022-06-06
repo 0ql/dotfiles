@@ -54,7 +54,7 @@ up() {
 cd $dotconfig
 if [[ -d "$dotconfig/nvim" ]]; then
   if [[ ! $1 == -u ]]; then
-    echo -n ".config/nvim exists do you want to pull changes instead? [Y/n] "
+    echo -n "[Install] ($dotconfig/nvim) exists do you want to pull changes instead? [Y/n] "
     read input
   fi
 
@@ -72,7 +72,7 @@ else
 fi
 cd $repodir
 
-if [[ $2 == -n ]]; then
+if [[ $2 == -n || $1 == -n ]]; then
   exit
 fi
 
