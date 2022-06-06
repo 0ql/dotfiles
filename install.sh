@@ -63,6 +63,8 @@ if [[ -d "$dotconfig/nvim" ]]; then
     echo "[Install] Removing ~/.config/nvim directory..."
     rm -rf nvim
     git clone https://github.com/0ql/LunarVim.git nvim
+    cd nvim
+    echo | make
   else
     cd nvim
     echo -n "[Neovim|Git] "
@@ -70,6 +72,8 @@ if [[ -d "$dotconfig/nvim" ]]; then
   fi
 else
   git clone https://github.com/0ql/LunarVim.git nvim
+  cd nvim
+  echo | make
 fi
 cd $repodir
 
