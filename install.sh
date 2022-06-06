@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 
 if [[ ! $1 == -u ]]; then
-  echo "This will override ~/.config/[ awesome, nvim, starship, zsh, kitty]."
-  echo -n "Are you sure you want to proceed? [y/N] "
+  echo "[Install] This will override ~/.config/[ awesome, nvim, starship, zsh, kitty]."
+  echo -n "[Install] Are you sure you want to proceed? [y/N] "
   read input
 
   if [[ $input != "y" ]]; then
     exit
   fi
 else
-  echo "Updateing..."
+  echo "[Install] Updateing..."
 fi
 
 if [[ ! -d "./.config" || ! -d "../dotfiles" ]]; then
-  echo "Please run the script in the repo directory."
+  echo "[Install] Please run the script in the repo directory. Exiting..."
   exit
 fi
 
@@ -40,6 +40,17 @@ cp -r ./.config/awesome $dotconfig
 cp -r ./.config/starship $dotconfig
 cp -r ./.config/rofi $dotconfig
 
+echo "[Install] Adding ($PWD) to .zshrc"
+echo "[Install|Info] Make sure to run this script if you move the dotfiles DIR."
+echo "
+up() {
+  currentDir=\$PWD
+  cd $PWD
+  bash install.sh -u -n
+  cd \$currentDir
+}
+" >> $dotconfig/zsh/.zshrc
+
 cd $dotconfig
 if [[ -d "$dotconfig/nvim" ]]; then
   if [[ ! $1 == -u ]]; then
@@ -48,11 +59,12 @@ if [[ -d "$dotconfig/nvim" ]]; then
   fi
 
   if [[ $input == "n" ]]; then
-    echo "Removing ~/.config/nvim directory..."
+    echo "[Install] Removing ~/.config/nvim directory..."
     rm -rf nvim
     git clone https://github.com/0ql/LunarVim.git nvim
   else
     cd nvim
+    echo -n "[Neovim|Git] "
     git pull
   fi
 else
@@ -60,14 +72,18 @@ else
 fi
 cd $repodir
 
-echo -n "Install .xinitrc File? [y/N] "
+if [[ $2 == -n ]]; then
+  exit
+fi
+
+echo -n "[Install] .xinitrc File? [y/N] "
 read input
 
 if [[ $input == "y" ]]; then
   cp .xinitrc /home/$USER/.xinitrc
 fi
 
-echo -n "Install .profile .bashrc .bash_profile? [y/N] "
+echo -n "[Install] .profile .bashrc .bash_profile? [y/N] "
 read input
 
 if [[ $input == "y" ]]; then
@@ -76,7 +92,7 @@ if [[ $input == "y" ]]; then
   cp .bash_profile /home/$USER
 fi
 
-echo -n "(Re)install required software? ArchLinux only (requires pacman) [y/N] "
+echo -n "[Install] (Re)install required software? ArchLinux only (requires pacman) [y/N] "
 read input
 
 if [[ $input != "y" ]]; then
