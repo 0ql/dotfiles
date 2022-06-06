@@ -39,6 +39,7 @@ cp -r ./.config/kitty $dotconfig
 cp -r ./.config/awesome $dotconfig
 cp -r ./.config/starship $dotconfig
 cp -r ./.config/rofi $dotconfig
+cp -r ./.config/cava $dotconfig
 
 echo "[Install] Adding ($PWD) to .zshrc"
 echo "[Install|Info] Make sure to run this script if you move the dotfiles DIR."

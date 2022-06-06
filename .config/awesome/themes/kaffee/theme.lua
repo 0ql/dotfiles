@@ -63,7 +63,7 @@ theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 theme.useless_gap   = dpi(5)
 theme.border_width  = dpi(2)
-theme.border_normal = palette.dark0_soft
+theme.border_normal = "#00000000"
 theme.border_focus  = palette.light0_soft
 theme.border_marked = palette.bright_yellow
 

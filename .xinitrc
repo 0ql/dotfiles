@@ -33,5 +33,7 @@ fi
 
 # xrandr --output eDP-1 --right-of HDMI-1
 
-xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
+# uncomment for shadows
+# xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
+xcompmgr &
 exec awesome

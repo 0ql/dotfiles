@@ -86,6 +86,24 @@ gc() {
 
 #  convienience
 alias cls="clear && ls"
+n() {
+  nvim $@
+}
+
+k() {
+  if [[ $1 == clean || $1 == cl ]]; then
+    bash ~/.config/zsh/scripts/clean_system.sh
+  fi
+
+  # check if program installed 
+  if ! [[ -x "/usr/bin/ffmpeg" ]]; then
+      echo "ffmpeg isn't installed. Exiting.."
+      exit
+  fi
+  if [[ $1 == piggy ]]; then
+    ffplay ~/.config/zsh/assets/piggy.opus
+  fi
+}
 
 # Plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -95,5 +113,4 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 xset r rate 250
 
 eval "$(starship init zsh)"
-transset-df -a 0.9
 clear
