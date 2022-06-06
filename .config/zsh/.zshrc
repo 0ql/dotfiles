@@ -86,6 +86,7 @@ gc() {
 
 #  convienience
 alias cls="clear && ls"
+alias n.="nvim ."
 n() {
   nvim $@
 }
