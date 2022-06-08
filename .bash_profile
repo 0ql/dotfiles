@@ -11,7 +11,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/.xinitrc"
 
-export PNPM_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/.local/share/pnpm"
+export PNPM_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
 export STARSHIP_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/starship/starship.toml"
