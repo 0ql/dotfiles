@@ -1,7 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
-echo "Cleaning up PNPM..."
-pnpm store prune
+if [[ -f /usr/bin/pnpm ]]; then
+  echo "Cleaning up PNPM..."
+  pnpm store prune
+fi
 echo "Remove all pkg except those installed..."
 sudo pacman -Sc 
 echo "Remove all files..."

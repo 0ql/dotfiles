@@ -93,16 +93,34 @@ n() {
 
 k() {
   if [[ $1 == clean || $1 == cl ]]; then
-    bash ~/.config/zsh/scripts/clean_system.sh
+    ~/.config/zsh/scripts/clean_system.sh
+  elif [[ $1 == dmenu || $1 == dm ]]; then
+    ~/.config/zsh/scripts/dmenu.sh
   fi
 
   # check if program installed 
   if ! [[ -x "/usr/bin/ffmpeg" ]]; then
       echo "ffmpeg isn't installed. Exiting.."
-      exit
+      return
   fi
   if [[ $1 == piggy ]]; then
     ffplay ~/.config/zsh/assets/piggy.opus
+  fi
+}
+
+st() {
+  currentDir=$PWD
+  if ! [[ -d ~/code/$1 ]]; then
+    echo "(~/code/$1) doesn't exist. Exiting.."
+    return
+  fi
+  cd ~/code/$1
+  if [[ -f "./start.sh" ]]; then
+    bash start.sh
+    cd $currentDir
+  else
+    nvim .
+    cd $currentDir
   fi
 }
 

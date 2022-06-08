@@ -34,7 +34,7 @@ if [[ ! -f $dotcache/zsh/history ]]; then
   touch $dotcache/zsh/history
 fi
 
-cp -r ./.config/zsh $dotconfig
+cp -rp ./.config/zsh $dotconfig
 cp -r ./.config/kitty $dotconfig
 cp -r ./.config/awesome $dotconfig
 cp -r ./.config/starship $dotconfig
@@ -44,6 +44,12 @@ cp -r ./.config/cava $dotconfig
 echo "[Install] Adding ($PWD) to .zshrc"
 echo "[Install|Info] Make sure to run this script if you move the dotfiles DIR."
 echo "
+dot() {
+  currentDir=\$PWD
+  cd $PWD
+  nvim .
+  cd \$currentDir
+} 
 up() {
   currentDir=\$PWD
   cd $PWD
@@ -88,11 +94,10 @@ if [[ $input == "y" ]]; then
   cp .xinitrc /home/$USER/.xinitrc
 fi
 
-echo -n "[Install] .profile .bashrc .bash_profile? [y/N] "
+echo -n "[Install] .bashrc .bash_profile? [y/N] "
 read input
 
 if [[ $input == "y" ]]; then
-  cp .profile /home/$USER
   cp .bashrc /home/$USER
   cp .bash_profile /home/$USER
 fi
