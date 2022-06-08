@@ -9,4 +9,4 @@ choise=$(printf '%s\n' $(find ${wikidir} -iname "*.html") | \
   dmenu -l 20 -p 'docs: ')
 
 filechoise=$(find /usr/share/doc/arch-wiki/html/en/ -type f -iname "$(echo $choise | sed -e 's/ /_/g')*")
-xdg $filechoise
+xdg-open $filechoise
