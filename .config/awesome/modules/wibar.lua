@@ -3,8 +3,8 @@ local wibox = require("wibox")
 local gears = require("gears")
 local beautiful = require("beautiful")
 
-local audio = require("modules/widgets/audio")
 local sys = require("modules/widgets/sys")
+local audio = require("modules.widgets.audio")
 
 -- Create a textclock widget
 local mytextclock = wibox.widget.textclock()
@@ -109,9 +109,10 @@ awful.screen.connect_for_each_screen(function(s)
     nil,
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
-      audio.runningSource(),
       wibox.widget.textbox("  "),
-      audio.runningSink(),
+      audio.defaultSink(),
+      wibox.widget.textbox("  "),
+      audio.volumebox,
       wibox.widget.textbox("  "),
       sys.cputemp(),
       wibox.widget.textbox("  "),

@@ -1,11 +1,14 @@
-local gears = require("gears")
-local awful = require("awful")
-local menubar = require("menubar")
+local gears         = require("gears")
+local awful         = require("awful")
+local menubar       = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+local audio         = require("modules.widgets.audio")
 
 -- Mouse bindings
 root.buttons(gears.table.join(
   awful.button({}, 3, function() mymainmenu:toggle() end)
+-- awful.button({}, 4, awful.tag.viewnext),
+-- awful.button({}, 5, awful.tag.viewprev)
 ))
 
 -- keybindings
@@ -105,15 +108,17 @@ globalkeys = gears.table.join(
 
   awful.key({ Modkey }, "Up",
     function()
-      awful.spawn("pactl set-sink-volume alsa_output.usb-bestechnic_Samsung_USB_C_Earphone_20160406.1-00.analog-stereo +5%")
+      -- awful.spawn("pactl set-sink-volume alsa_output.usb-bestechnic_Samsung_USB_C_Earphone_20160406.1-00.analog-stereo +5%")
       -- awful.spawn("pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +5%")
+      audio.incVol()
     end
   ),
 
   awful.key({ Modkey }, "Down",
     function()
-      awful.spawn("pactl set-sink-volume alsa_output.usb-bestechnic_Samsung_USB_C_Earphone_20160406.1-00.analog-stereo -5%")
+      -- awful.spawn("pactl set-sink-volume alsa_output.usb-bestechnic_Samsung_USB_C_Earphone_20160406.1-00.analog-stereo -5%")
       -- awful.spawn("pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -5%")
+      audio.decVol()
     end
   ),
 
