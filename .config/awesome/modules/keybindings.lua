@@ -1,5 +1,6 @@
 local gears = require("gears")
 local awful = require("awful")
+local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
 -- Mouse bindings
@@ -104,15 +105,15 @@ globalkeys = gears.table.join(
 
   awful.key({ Modkey }, "Up",
     function()
-      -- awful.spawn("pactl set-sink-volume alsa_output.usb-bestechnic_Samsung_USB_C_Earphone_20160406.1-00.analog-stereo +5%")
-      awful.spawn("pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +5%")
+      awful.spawn("pactl set-sink-volume alsa_output.usb-bestechnic_Samsung_USB_C_Earphone_20160406.1-00.analog-stereo +5%")
+      -- awful.spawn("pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +5%")
     end
   ),
 
   awful.key({ Modkey }, "Down",
     function()
-      -- awful.spawn("pactl set-sink-volume alsa_output.usb-bestechnic_Samsung_USB_C_Earphone_20160406.1-00.analog-stereo -5%")
-      awful.spawn("pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -5%")
+      awful.spawn("pactl set-sink-volume alsa_output.usb-bestechnic_Samsung_USB_C_Earphone_20160406.1-00.analog-stereo -5%")
+      -- awful.spawn("pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -5%")
     end
   ),
 
@@ -131,12 +132,12 @@ globalkeys = gears.table.join(
     end,
     { description = "lua execute prompt", group = "awesome" }),
   -- Menubar
-  -- awful.key({ Modkey }, "p", function() menubar.show() end,
-  --   { description = "show the menubar", group = "launcher" })
-  awful.key({ Modkey }, "p", function()
-    -- os.execute("rofi -show run")
-    os.execute("rofi -show run")
-  end)
+  awful.key({ Modkey }, "p", function() menubar.show() end,
+    { description = "show the menubar", group = "launcher" })
+-- awful.key({ Modkey }, "p", function()
+--   -- os.execute("rofi -show run")
+--   os.execute("rofi -show run")
+-- end)
 )
 
 clientkeys = gears.table.join(

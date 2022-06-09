@@ -94,8 +94,10 @@ n() {
 k() {
   if [[ $1 == clean || $1 == cl ]]; then
     ~/.config/zsh/scripts/clean_system.sh
-  elif [[ $1 == dmenu || $1 == dm ]]; then
-    ~/.config/zsh/scripts/dmenu.sh
+  elif [[ $1 == wiki || $1 == wi ]]; then
+    ~/.config/zsh/scripts/wiki.sh
+  elif [[ $1 == music || $1 == mu ]]; then
+    ~/.config/zsh/scripts/songs.sh
   fi
 
   # check if program installed 

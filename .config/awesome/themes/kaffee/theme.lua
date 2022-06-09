@@ -50,7 +50,8 @@ local theme = {}
 
 theme.font = "Iosevka 10"
 theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/kaffee"
-theme.wallpaper = theme.dir .. "/gruv-pixel-III.png"
+-- theme.wallpaper = theme.dir .. "/gruv-pixel-III.png"
+theme.wallpaper = theme.dir .. "/gruv-simplistic-ngo.png"
 
 theme.bg_normal     = palette.dark0_hard
 theme.bg_focus      = palette.dark1
