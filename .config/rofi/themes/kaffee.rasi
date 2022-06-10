@@ -1,5 +1,19 @@
+prompt {
+  background-color: #7c6f64;
+  padding: 12px;
+  text-color: #ebdbb2;
+}
+ textbox-prompt-colon {                                                
+  text-color: #ebdbb2;
+  padding: 12px 0px 0px 0px;
+  background-color: #7c6f64;
+  expand: false;                                                    
+  str: ":";
+ }  
 inputbar {
-  children: [entry];
+  spacing: 0;
+  children: [ prompt, textbox-prompt-colon, entry];
+  margin: 0;
 }
 entry {
   placeholder: "Type here";

@@ -5,4 +5,4 @@ if [[ -n $1 ]]; then
   exit 0
 fi
 
-pactl list sinks short | awk '{print $2}'
+pamixer --list-sinks | grep -oP '[0-9]*(?<=")[0-9A-Za-z-_\s]{2,}(?=")'

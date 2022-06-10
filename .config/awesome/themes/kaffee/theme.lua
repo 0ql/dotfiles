@@ -65,7 +65,7 @@ theme.fg_minimize   = "#ffffff"
 theme.useless_gap   = dpi(5)
 theme.border_width  = dpi(1)
 theme.border_normal = "#00000000"
-theme.border_focus  = palette.light0_soft
+theme.border_focus  = palette.light3
 theme.border_marked = palette.bright_yellow
 
 theme.wibar_bg = "#ffffff00"

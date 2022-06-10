@@ -1,5 +1,5 @@
 configuration {
-modi: "window,run,Project:~/.config/rofi/scripts/sinks.sh";
+modi: "run,window,sinks:~/.config/rofi/scripts/sinks.sh";
 font: "Iosevka 16";
 /*	location: 0;*/
 /*	yoffset: 0;*/
