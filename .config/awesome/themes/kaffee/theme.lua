@@ -48,7 +48,8 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font = "Iosevka 10"
+-- theme.font = "Iosevka 10"
+theme.font = "Fira Code Nerd Font Bold 10"
 theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/kaffee"
 -- theme.wallpaper = theme.dir .. "/gruv-pixel-III.png"
 theme.wallpaper = theme.dir .. "/gruv-simplistic-ngo.png"
@@ -58,14 +59,14 @@ theme.bg_focus      = palette.dark1
 theme.bg_urgent     = palette.bright_red
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
-theme.fg_normal     = "#ebdbb2"
+theme.fg_normal     = palette.light4
 theme.fg_focus      = "#ebdbb2"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 theme.useless_gap   = dpi(5)
 theme.border_width  = dpi(1)
 theme.border_normal = "#00000000"
-theme.border_focus  = palette.light3
+theme.border_focus  = palette.dark4
 theme.border_marked = palette.bright_yellow
 
 theme.wibar_bg = "#ffffff00"

@@ -8,5 +8,9 @@ choise=$(printf '%s\n' $(find $wikidir -iname "*.html") | \
   sort -g | \
   rofi -dmenu -l 20 -p 'docs: ')
 
+if ! [[ -n $choise ]]; then
+  exit
+fi
+
 filechoise=$(find $wikidir -type f -iname "$(echo $choise | sed -e 's/ /_/g')*")
-xdg-open $filechoise
+surf $filechoise
