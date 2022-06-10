@@ -32,7 +32,6 @@ element-text {
   border: 0px;
   border-color: #7c6f64;
 }
-
 element-text selected {
   background-color: #504945;
 }

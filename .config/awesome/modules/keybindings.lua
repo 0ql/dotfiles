@@ -140,7 +140,7 @@ globalkeys = gears.table.join(
   -- awful.key({ Modkey }, "p", function() menubar.show() end,
   --   { description = "show the menubar", group = "launcher" })
   awful.key({ Modkey }, "p", function()
-    os.execute("rofi -show run")
+    os.execute("rofi -show")
   end)
 )
 
