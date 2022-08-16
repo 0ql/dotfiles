@@ -86,10 +86,19 @@ gc() {
 
 #  convienience
 alias cls="clear && ls"
+alias cl="clear"
 alias n.="nvim ."
 n() {
   nvim $@
 }
+
+# pnpm
+alias pd="pnpm run dev"
+alias pb="pnpm run build"
+
+# emacs
+alias emacs="emacsclient -c -a 'emacs'"
+alias em="emacsclient -c -a 'emacs'"
 
 k() {
   if [[ $1 == clean || $1 == cl ]]; then

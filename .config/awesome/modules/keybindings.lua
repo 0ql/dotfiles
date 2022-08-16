@@ -72,11 +72,13 @@ globalkeys = gears.table.join(
   -- Standard program
   awful.key({ Modkey, }, "Return", function() awful.spawn(terminal) end,
     { description = "open a terminal", group = "launcher" }),
+  -- emacsclient (mod + e)
+  awful.key({ Modkey, }, "e", function() awful.spawn("emacsclient -c -a 'emacs'") end,
+    { description = "open emacs(client)", group = "launcher" }),
   awful.key({ Modkey, "Control" }, "r", awesome.restart,
     { description = "reload awesome", group = "awesome" }),
   awful.key({ Modkey, "Shift" }, "q", awesome.quit,
     { description = "quit awesome", group = "awesome" }),
-
   awful.key({ Modkey, }, "l", function() awful.tag.incmwfact(0.05) end,
     { description = "increase master width factor", group = "layout" }),
   awful.key({ Modkey, }, "h", function() awful.tag.incmwfact(-0.05) end,

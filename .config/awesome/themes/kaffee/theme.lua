@@ -42,7 +42,6 @@ local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
-local gears = require("gears")
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 
@@ -52,7 +51,10 @@ local theme = {}
 theme.font = "Fira Code Nerd Font Bold 10"
 theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/kaffee"
 -- theme.wallpaper = theme.dir .. "/gruv-pixel-III.png"
-theme.wallpaper = theme.dir .. "/gruv-simplistic-ngo.png"
+-- theme.wallpaper = theme.dir .. "/gruv-simplistic-ngo.png"
+-- theme.wallpaper = theme.dir .. "/gruv-simplistic-ngo.png"
+-- theme.wallpaper = theme.dir .. "/ultrawidebg.jpg"
+theme.wallpaper = theme.dir .. "/ultrawidebg3.jpg"
 
 theme.bg_normal     = palette.dark0_hard
 theme.bg_focus      = palette.dark1
