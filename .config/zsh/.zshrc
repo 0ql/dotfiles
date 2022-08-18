@@ -140,6 +140,13 @@ st() {
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Blur {{{
+# if [[ $(ps --no-header -p $PPID -o comm) =~ kitty ]]; then
+#         for wid in $(xdotool search --pid $PPID); do
+#             xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $wid; done
+# fi
+# }}}
+
 # 250 mills of timeout when pressed a button
 xset r rate 250
 
