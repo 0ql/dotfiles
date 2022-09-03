@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ ! $1 == -u ]]; then
-  echo "[Install] This will override ~/.config/[ awesome, nvim, starship, zsh, kitty]."
+  echo "[Install] This will override ~/.config/[ awesome, nvim, starship, zsh, kitty, hypr ]."
   echo -n "[Install] Are you sure you want to proceed? [y/N] "
   read input
 
@@ -38,8 +38,7 @@ cp -rp ./.config/zsh $dotconfig
 cp -r ./.config/kitty $dotconfig
 cp -r ./.config/awesome $dotconfig
 cp -r ./.config/starship $dotconfig
-cp -rp ./.config/rofi $dotconfig
-cp -r ./.config/cava $dotconfig
+cp -rp ./.config/hypr $dotconfig
 
 echo "[Install] Adding ($PWD) to .zshrc"
 echo "[Install|Info] Make sure to run this script if you move the dotfiles DIR."
@@ -87,13 +86,6 @@ if [[ $2 == -n || $1 == -n ]]; then
   exit
 fi
 
-echo -n "[Install] .xinitrc File? [y/N] "
-read input
-
-if [[ $input == "y" ]]; then
-  cp .xinitrc /home/$USER/.xinitrc
-fi
-
 echo -n "[Install] .bashrc .bash_profile? [y/N] "
 read input
 
@@ -109,4 +101,14 @@ if [[ $input != "y" ]]; then
   exit
 fi
 
-sudo pacman --noconfirm -S kitty zsh awesome starship neovim xorg-xinit xorg-server exa bat zsh-syntax-highlighting zsh-autosuggestions ttf-iosevka-nerd rofi xcompmgr ripgrep
+# TODO: select hyprpaper monitor
+sudo pacman --noconfirm -S kitty zsh starship neovim exa bat zsh-syntax-highlighting zsh-autosuggestions nerd-fonts-fira-code ripgrep hyprland-bin hyprpaper-git wofi gruvbox-dark-gtk
+
+echo -n "[Install] (Re)install none required software? ArchLinux only (requires pacman) [y/N] "
+read input
+
+if [[ $input != "y" ]]; then
+  exit
+fi
+
+sudo pacman --noconfirm -S yay-bin brave-bin lxappearance virt-manager unzip unrar

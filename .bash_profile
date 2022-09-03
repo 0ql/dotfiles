@@ -4,12 +4,15 @@
 
 export EDITOR="nvim"
 export TERMINAL="kitty"
-export BROWSER="brave-browser-nightly"
+export BROWSER="brave"
 
+export QT_QPA_PLATFORM=wayland
+export XDG_CURRENT_DESKTOP=Hyprland
+export XDG_SESSION_DESKTOP=Hyprland
+export XDG_CURRENT_SESSION_TYPE=wayland
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
-export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/.xinitrc"
 
 export PNPM_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/pnpm"
 export PATH="$PNPM_HOME:$PATH"
