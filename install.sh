@@ -106,9 +106,9 @@ sudo pacman-key --lsign-key FBA220DFC880C036
 sudo pacman --noconfirm -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 
 echo "[chaotic-aur]
-Include = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
+Include = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf
 
-sudo pacman --noconfirm -S yay
+sudo pacman --noconfirm -Sy yay
 
 # TODO: select hyprpaper monitor
 sudo yay --noconfirm -S kitty zsh starship neovim exa bat zsh-syntax-highlighting zsh-autosuggestions nerd-fonts-fira-code ripgrep hyprland-bin hyprpaper-git wofi gruvbox-dark-gtk
@@ -120,4 +120,4 @@ if [[ $input != "y" ]]; then
   exit
 fi
 
-sudo pacman --noconfirm -S yay-bin brave-bin lxappearance virt-manager unzip unrar
+sudo yay --noconfirm -S brave-bin lxappearance virt-manager unzip unrar
