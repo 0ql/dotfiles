@@ -86,6 +86,7 @@ gc() {
 }
 
 #  convienience
+alias fuck="sudo $(fc -ln -1)"
 alias cls="clear && ls"
 alias cl="clear"
 alias n.="nvim ."

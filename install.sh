@@ -94,17 +94,26 @@ if [[ $input == "y" ]]; then
   cp .bash_profile /home/$USER
 fi
 
-echo -n "[Install] (Re)install required software? ArchLinux only (requires pacman) [y/N] "
+echo -n "[Install] (Re)install required software and add chaotic-aur? ArchLinux only (requires pacman) [y/N] "
 read input
 
 if [[ $input != "y" ]]; then
   exit
 fi
 
-# TODO: select hyprpaper monitor
-sudo pacman --noconfirm -S kitty zsh starship neovim exa bat zsh-syntax-highlighting zsh-autosuggestions nerd-fonts-fira-code ripgrep hyprland-bin hyprpaper-git wofi gruvbox-dark-gtk
+pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
+pacman-key --lsign-key FBA220DFC880C036
+pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 
-echo -n "[Install] (Re)install none required software? ArchLinux only (requires pacman) [y/N] "
+echo "[chaotic-aur]
+Include = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
+
+sudo pacman --noconfirm -S yay
+
+# TODO: select hyprpaper monitor
+yay pacman --noconfirm -S kitty zsh starship neovim exa bat zsh-syntax-highlighting zsh-autosuggestions nerd-fonts-fira-code ripgrep hyprland-bin hyprpaper-git wofi gruvbox-dark-gtk
+
+echo -n "[Install] (Re)install not required software? ArchLinux only (requires pacman) [y/N] "
 read input
 
 if [[ $input != "y" ]]; then
