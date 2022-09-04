@@ -109,6 +109,14 @@ Include = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf
 
 sudo pacman --noconfirm -Sy yay
 
+echo -n "[Install] Set WLR_RENDERER_ALLOW_SOFTWARE to true? (QEMU/KVM \w QXL fix for Hyprland) [y/N] "
+read input
+
+if [[ $input != "y" ]]; then
+	export WLR_RENDERER_ALLOW_SOFTWARE=1
+	echo "export WLR_RENDERER_ALLOW_SOFTWARE=1" >> /home/$USER/.bash_profile
+fi
+
 # TODO: select hyprpaper monitor
 yay --noconfirm -S kitty zsh starship neovim exa bat zsh-syntax-highlighting zsh-autosuggestions nerd-fonts-fira-code ripgrep chaotic-aur/hyprland-git hyprpaper-git wofi gruvbox-dark-gtk
 
