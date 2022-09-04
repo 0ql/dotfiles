@@ -14,7 +14,7 @@ echo -n "Enter the Linux Filesystem disk partition path (/dev/<X>da<num>): "
 read input
 mkfs.ext4 $input
 mount $input /mnt
-pacstrap /mnt base linux linux-firmware base-devel sudo vim grub efibootmgr git networkmanager
+pacstrap /mnt base linux linux-firmware base-devel sudo neovim grub efibootmgr git networkmanager
 genfstab -U /mnt >> /mnt/etc/fstab
 
 arch-chroot /mnt bash -c "
@@ -75,10 +75,6 @@ if [[ \$input == y ]]; then
     sudo chown -R \$username dotfiles
   fi
 fi
-
-echo -n \"Set delay before repeating characters on keypress: \"
-read input
-sudo xset r rate \$input
 
 exit
 "
