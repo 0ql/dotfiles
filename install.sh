@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ ! $1 == -u ]]; then
-  echo "[Install] This will override ~/.config/[ awesome, nvim, starship, zsh, kitty, hypr ]."
+  echo "[Install] This will override ~/.config/[ nvim, starship, zsh, kitty, hypr ]."
   echo -n "[Install] Are you sure you want to proceed? [y/N] "
   read input
 
@@ -34,11 +34,10 @@ if [[ ! -f $dotcache/zsh/history ]]; then
   touch $dotcache/zsh/history
 fi
 
-cp -rp ./.config/zsh $dotconfig
+cp -r ./.config/zsh $dotconfig
 cp -r ./.config/kitty $dotconfig
-cp -r ./.config/awesome $dotconfig
 cp -r ./.config/starship $dotconfig
-cp -rp ./.config/hypr $dotconfig
+cp -r ./.config/hypr $dotconfig
 
 echo "[Install] Adding ($PWD) to .zshrc"
 echo "[Install|Info] Make sure to run this script if you move the dotfiles DIR."
@@ -111,7 +110,7 @@ Include = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf
 sudo pacman --noconfirm -Sy yay
 
 # TODO: select hyprpaper monitor
-sudo yay --noconfirm -S kitty zsh starship neovim exa bat zsh-syntax-highlighting zsh-autosuggestions nerd-fonts-fira-code ripgrep hyprland-bin hyprpaper-git wofi gruvbox-dark-gtk
+yay --noconfirm -S kitty zsh starship neovim exa bat zsh-syntax-highlighting zsh-autosuggestions nerd-fonts-fira-code ripgrep chaotic-aur/hyprland-git hyprpaper-git wofi gruvbox-dark-gtk
 
 echo -n "[Install] (Re)install not required software? ArchLinux only (requires pacman) [y/N] "
 read input
@@ -120,4 +119,4 @@ if [[ $input != "y" ]]; then
   exit
 fi
 
-sudo yay --noconfirm -S brave-bin lxappearance virt-manager unzip unrar
+yay --noconfirm -S brave-bin lxappearance virt-manager unzip unrar

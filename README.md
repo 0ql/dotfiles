@@ -11,9 +11,20 @@ Personal Dotfiles with an added install script.
 - **zsh** as the shell
 
 ### install.sh
-Ideally suited to run on a bare bones Arch install. Should work on most GNU / Linux distros.
+Basically copies over all config files and their according positions within the file system. Don't run as root. Optionally auto install software (available only on arch).
 
-To clone the repo
+### install-archiso-x86_64-uefi.sh
+Ideally suited to run on a bare bones Arch ISO to set up a virtual machine (as it doesn't create a swap file).
+
+### Some commands
+
+To download install-archiso-x86_64-uefi file
+```bash
+curl -O https://raw.githubusercontent.com/0ql/dotfiles/master/install-archiso-x86_64-uefi.sh
+wget https://raw.githubusercontent.com/0ql/dotfiles/master/install-archiso-x86_64-uefi.sh
+```
+
+To clone the repo with `git`
 ```bash
 git clone https://github.com/0ql/dotfiles
 ```
