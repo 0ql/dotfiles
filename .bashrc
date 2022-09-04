@@ -6,3 +6,9 @@
 [[ $- != *i* ]] && return
 
 PS1='[\u@\h \W]\$ '
+
+hypr() {
+	cd ~
+
+	exec Hyprland
+}

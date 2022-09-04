@@ -42,7 +42,7 @@ echo \"127.0.0.1 localhost\" >> /etc/hosts
 echo \"::1       localhost\" >> /etc/hosts
 echo \"127.0.1.1 \$input.localdomain \$input\" >> /etc/hosts
 
-echo -n \"Enter efi directory (/dev/Xda): \"
+echo -n \"Enter efi directory (/dev/<X>da<num>): \"
 read input
 
 mount --mkdir \$input /mnt/boot
