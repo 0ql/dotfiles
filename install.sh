@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ ! $1 == -u ]]; then
-  echo "[Install] This will override ~/.config/[ nvim, starship, zsh, kitty, hypr, fontconfig ]."
+  echo "[Install] This will override ~/.config/[ nvim, starship, zsh, kitty, hypr, fontconfig, wofi ]."
   echo -n "[Install] Are you sure you want to proceed? [y/N] "
   read input
 
@@ -39,6 +39,7 @@ cp -r ./.config/kitty $dotconfig
 cp -r ./.config/starship $dotconfig
 cp -r ./.config/hypr $dotconfig
 cp -r ./.config/fontconfig $dotconfig
+cp -r ./.config/wofi $dotconfig
 
 echo "[Install] Adding ($PWD) to .zshrc"
 echo "[Install|Info] Make sure to run this script if you move the dotfiles DIR."
