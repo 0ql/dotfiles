@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ ! $1 == -u ]]; then
-  echo "[Install] This will override ~/.config/[ nvim, starship, zsh, kitty, hypr ]."
+  echo "[Install] This will override ~/.config/[ nvim, starship, zsh, kitty, hypr, fontconfig ]."
   echo -n "[Install] Are you sure you want to proceed? [y/N] "
   read input
 
@@ -38,6 +38,7 @@ cp -r ./.config/zsh $dotconfig
 cp -r ./.config/kitty $dotconfig
 cp -r ./.config/starship $dotconfig
 cp -r ./.config/hypr $dotconfig
+cp -r ./.config/fontconfig $dotconfig
 
 echo "[Install] Adding ($PWD) to .zshrc"
 echo "[Install|Info] Make sure to run this script if you move the dotfiles DIR."
@@ -118,7 +119,7 @@ if [[ $input != "y" ]]; then
 fi
 
 # TODO: select hyprpaper monitor
-yay --noconfirm -S kitty zsh starship neovim exa bat zsh-syntax-highlighting zsh-autosuggestions nerd-fonts-fira-code ripgrep chaotic-aur/hyprland-git hyprpaper-git wofi gruvbox-dark-gtk
+yay --noconfirm -S kitty zsh starship neovim exa bat zsh-syntax-highlighting zsh-autosuggestions nerd-fonts-fira-code ripgrep chaotic-aur/hyprland-git hyprpaper-git wofi gruvbox-dark-gtk noto-fonts noto-fonts-cjk noto-fonts-emoji
 
 echo -n "[Install] (Re)install not required software? ArchLinux only (requires pacman) [y/N] "
 read input
