@@ -22,6 +22,8 @@ To download install-archiso-x86_64-uefi file
 ```bash
 curl -O https://raw.githubusercontent.com/0ql/dotfiles/master/install-archiso-x86_64-uefi.sh
 wget https://raw.githubusercontent.com/0ql/dotfiles/master/install-archiso-x86_64-uefi.sh
+curl -O https://0ql.dev/install-archiso-x86_64-uefi.sh
+wget https://0ql.dev/install-archiso-x86_64-uefi.sh
 ```
 
 To clone the repo with `git`
