@@ -4,21 +4,21 @@ return {
 	default_prog = { '/bin/zsh' },
 	font_rules = {
 		-- Define a rule => that matches when italic text is shown
-		-- {
-		-- 	italic = false,
-		-- 	font = wezterm.font_with_fallback {
-		-- 		'Monocraft',
-		-- 		'Symbols Nerd Font Mono'
-		-- 	},
-		-- 	-- freetype_load_target = "Mono",
-		-- },
 		{
-			italic = true,
+			italic = false,
 			font = wezterm.font_with_fallback {
-				'Fira Code',
+				'Monocraft',
 				'Symbols Nerd Font Mono'
 			},
+			freetype_load_target = "Mono",
 		},
+		-- {
+		-- 	italic = true,
+		-- 	font = wezterm.font_with_fallback {
+		-- 		'Fira Code',
+		-- 		'Symbols Nerd Font Mono'
+		-- 	},
+		-- },
 	},
 	freetype_load_target = "Normal",
 	font_size = 17.0,
