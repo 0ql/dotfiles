@@ -56,6 +56,7 @@ alias egrep='egrep --color=auto'
 alias hw='hwinfo --short'                                   # Hardware Info
 alias big="expac -H M '%m\t%n' | sort -h | nl"              # Sort installed packages according to size in MB
 alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'			# List amount of -git packages
+alias ex="exit"
 
 # Get fastest mirrors
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
@@ -78,8 +79,10 @@ alias md="mullvad disconnect"
 
 # git
 alias gs="git status"
+alias gv="git status --verbose"
 alias gp="git push"
 alias gpl="git pull"
+alias gl="git log --graph --pretty=format:'%C(auto)%h%d (%cr) %cn %s' --all"
 alias ga="git add ."
 gc() {
   git commit -m $1
@@ -140,13 +143,6 @@ st() {
 # Plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Blur {{{
-# if [[ $(ps --no-header -p $PPID -o comm) =~ kitty ]]; then
-#         for wid in $(xdotool search --pid $PPID); do
-#             xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $wid; done
-# fi
-# }}}
 
 # 250 mills of timeout when pressed a button
 xset r rate 250
