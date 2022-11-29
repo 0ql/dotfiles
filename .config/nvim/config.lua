@@ -9,21 +9,7 @@ lvim.plugins = {
 			require("colorizer").setup()
 		end,
 	},
-	{ "0ql/google_search.nvim", requires = 'MunifTanjim/nui.nvim' },
-	{ "tamton-aquib/zone.nvim", config = function()
-		require('zone').setup {
-			style = "dvd",
-			after = 30, -- Idle timeout
-			treadmill = {
-				direction = "left",
-			},
-			epilepsy = {
-				stage = "aura", -- "aura" or "ictal"
-			},
-			dvd = {
-			},
-		}
-	end }
+	{ "0ql/google_search.nvim", requires = 'MunifTanjim/nui.nvim' }
 }
 
 lvim.transparent_window = true
