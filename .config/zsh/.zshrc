@@ -6,21 +6,24 @@ zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' gain-privileges 1
 
 # History in cache dir
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=30000
+SAVEHIST=30000
 HISTFILE=~/.cache/zsh/history
 
-bindkey -v
 bindkey "^?" backward-delete-char
+bindkey '^H' backward-kill-word
+bindkey '5~' kill-word
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 
 # Yank to the system clipboard
-function vi-yank-xclip {
-    zle vi-yank
-   echo "$CUTBUFFER" | pbcopy -i
-}
+# function vi-yank-xclip {
+#     zle vi-yank
+#    echo "$CUTBUFFER" | pbcopy -i
+# }
 
-zle -N vi-yank-xclip
-bindkey -M vicmd 'y' vi-yank-xclip
+# zle -N vi-yank-xclip
+# bindkey -M vicmd 'y' vi-yank-xclip
 export KEYTIMEOUT=1
 
 # Replace ls with exa
@@ -30,7 +33,7 @@ alias ll='exa -l --color=always --group-directories-first --icons'  # long forma
 alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
 alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
 # Replace some more things with better alternatives
-alias cat='bat --style header --style rules --style snip --style changes --style header'
+# alias cat='bat --style header --style rules --style snip --style changes --style header'
 [ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
 
 # Common use
@@ -84,12 +87,11 @@ alias gp="git push"
 alias gpl="git pull"
 alias gl="git log --graph --pretty=format:'%C(auto)%h%d (%cr) %cn %s' --all"
 alias ga="git add ."
-gc() {
-  git commit -m $1
-}
+alias gc="git commit -m $1"
+alias gch="git checkout $1"
 
 #  convienience
-alias fuck="sudo $(fc -ln -1)"
+# alias fuck="sudo $(fc -ln -1)"
 alias cls="clear && ls"
 alias cl="clear"
 alias n.="nvim ."
@@ -143,9 +145,10 @@ st() {
 # Plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # 250 mills of timeout when pressed a button
 xset r rate 250
 
 eval "$(starship init zsh)"
-clear
+eval "$(direnv hook zsh)"

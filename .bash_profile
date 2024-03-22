@@ -36,6 +36,11 @@ export WLR_BACKEND=vulkan
 export QT_QPA_PLATFORM="wayland;xcb"
 export GDK_BACKEND=wayland
 
+export WLR_RENDERER=vulkan
+export __GL_GSYNC_ALLOWED=0
+export __GL_VRR_ALLOWED=0
+
 export ANDROID_HOME=~/Android/Sdk
+export LIBSEAT_BACKEND=logind
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
