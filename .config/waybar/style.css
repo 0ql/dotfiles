@@ -107,6 +107,12 @@ button:hover {
 	margin: 4px 0px;
 }
 
+#battery {
+	background-color: @main-bg;
+	padding: 3px 20px;
+	margin: 4px 0px;
+}
+
 #language {
 	background-color: @main-bg;
 	padding: 3px 20px;
@@ -155,10 +161,10 @@ button:hover {
 /* 	margin-right: 0; */
 /* } */
 
-#battery {
-	background-color: #ffffff;
-	color: #000000;
-}
+/* #battery { */
+/* 	background-color: #ffffff; */
+/* 	color: #000000; */
+/* } */
 
 #battery.charging, #battery.plugged {
 	color: #ffffff;

@@ -29,10 +29,10 @@
 		// "idle_inhibitor",
 		"pulseaudio",
 		"network",
+		"battery",
 		// "backlight",
 		// "keyboard-state",
 		"hyprland/language"
-		// "battery",
 		// "battery#bat2",
 		// "tray"
 	],
@@ -200,7 +200,7 @@
 			"critical": 15
 		},
 		"format": "{capacity}% {icon}",
-		"format-charging": "{capacity}% ",
+		"format-charging": "{capacity}% <span font='12' rise='-1000'>󰂄</span>",
 		"format-plugged": "{capacity}% ",
 		"format-alt": "{time} {icon}",
 		// "format-good": "", // An empty format will hide the module
