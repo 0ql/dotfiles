@@ -116,7 +116,7 @@ button:hover {
 #language {
 	background-color: @main-bg;
 	padding: 3px 20px;
-	margin: 4px 20px 4px 0px;
+	margin: 4px 20px 4px -5px;
 	border-radius: 0px 20px 20px 0px;
 }
 
@@ -307,20 +307,20 @@ label:focus {
 	background-color: #51a37a;
 }
 
-#keyboard-state {
-	background: #97e1ad;
-	color: #000000;
-	padding: 0 0px;
-	min-width: 16px;
-}
+/* #keyboard-state { */
+/* 	background: #97e1ad; */
+/* 	color: #000000; */
+/* 	padding: 0 0px; */
+/* 	min-width: 16px; */
+/* } */
 
-#keyboard-state > label {
-	padding: 0 5px;
-}
+/* #keyboard-state > label { */
+/* 	padding: 0 5px; */
+/* } */
 
-#keyboard-state > label.locked {
-	background: rgba(0, 0, 0, 0.2);
-}
+/* #keyboard-state > label.locked { */
+/* 	background: rgba(0, 0, 0, 0.2); */
+/* } */
 
 #scratchpad {
 	background: rgba(0, 0, 0, 0.2);
