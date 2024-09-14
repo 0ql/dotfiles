@@ -1,3 +1,9 @@
+-- Read the docs: https://www.lunarvim.org/docs/configuration
+-- Example configs: https://github.com/LunarVim/starter.lvim
+-- Video Tutorials: https://www.youtube.com/watch?v=sFA9kX-Ud_c&list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6
+-- Forum: https://www.reddit.com/r/lunarvim/
+-- Discord: https://discord.com/invite/Xb9B4Ny
+
 lvim.leader = ";"
 lvim.colorscheme = "gruvbox"
 
@@ -31,7 +37,17 @@ lvim.plugins = {
 				panel = { enabled = false }
 			})
 		end
-	}
+	},
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("lvim.core.comment").setup()
+    end,
+    keys = { { "gc", mode = { "n", "v" } }, { "gb", mode = { "n", "v" } } },
+    event = "User FileOpened",
+    enabled = lvim.builtin.comment.active,
+		commit = "e30b7f2", -- use latest version to support hyprland conf files
+  },
 }
 
 -- Below config is required to prevent copilot overriding Tab with a suggestion
@@ -76,3 +92,20 @@ vim.cmd [[
   tnoremap kj <C-\><C-n>
 	command! TZ term zsh
 ]]
+
+vim.filetype.add({
+	pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})
+
+-- Hyprlang LSP
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
+	pattern = { "*.hl", "hypr*.conf" },
+	callback = function(event)
+		-- print(string.format("starting hyprls for %s", vim.inspect(event)))
+		vim.lsp.start {
+			name = "hyprlang",
+			cmd = { "hyprls" },
+			root_dir = vim.fn.getcwd(),
+		}
+	end
+})

@@ -29,10 +29,10 @@
 		// "idle_inhibitor",
 		"pulseaudio",
 		"network",
-		"battery",
 		// "backlight",
-		"keyboard-state",
+		// "keyboard-state",
 		"hyprland/language"
+		// "battery",
 		// "battery#bat2",
 		// "tray"
 	],
@@ -61,7 +61,7 @@
 		"format-linked": "󰈀 {ifname} (No IP)",
 		"format-disconnected": "󰖪 ",
 		"tooltip-format-disconnected": "Disconnected",
-		"format-alt": "<span foreground='#99ffdd'><span font='8' rise='700'></span>   {bandwidthDownBytes}</span><span foreground='#ffcc66'>   <span font='8' rise='700'></span>   {bandwidthUpBytes}</span>",
+		"format-alt": "<span foreground='#99ffdd'>  {bandwidthDownBytes}</span><span foreground='#ffcc66'>      {bandwidthUpBytes}</span>",
 		"interval": 2,
 	},
 	"hyprland/language": {
@@ -69,10 +69,9 @@
 		"on-click": "~/.config/hypr/scripts/keyboardswitch.sh",
 	},
 	"keyboard-state": {
-		"numlock": false,
+		"numlock": true,
 		"capslock": true,
-		"format": "<span font='8' rise='-200'>{icon}</span>",
-		// "format": "{name} {icon}",
+		"format": "{name} {icon}",
 		"format-icons": {
 			"locked": "",
 			"unlocked": ""
@@ -200,10 +199,10 @@
 			"warning": 30,
 			"critical": 15
 		},
-		"format": "{icon}    {capacity}%",
-		"format-charging": "<span font='12' rise='-1000'>󰂄</span>    {capacity}%",
-		"format-plugged": "    {capacity}%",
-		"format-alt": "{icon}    {time}",
+		"format": "{capacity}% {icon}",
+		"format-charging": "{capacity}% ",
+		"format-plugged": "{capacity}% ",
+		"format-alt": "{time} {icon}",
 		// "format-good": "", // An empty format will hide the module
 		// "format-full": "",
 		"format-icons": [
@@ -233,7 +232,7 @@
 		"format-bluetooth-muted": " {icon} {format_source}",
 		"format-muted": " {format_source}",
 		"format-source": "  {volume}%",
-		"format-source-muted": "",
+		"format-source-muted": " ",
 		"format-icons": {
 			"headphone": "",
 			"hands-free": "",

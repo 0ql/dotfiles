@@ -94,35 +94,21 @@ alias gch="git checkout $1"
 # alias fuck="sudo $(fc -ln -1)"
 alias cls="clear && ls"
 alias cl="clear"
-alias n.="nvim ."
-n() {
-  nvim $@
+l() {
+	if [ "$#" -gt 0 ]; then
+		lvim $@
+	else
+		lvim .
+	fi
 }
 
 # pnpm
 alias pd="pnpm run dev"
 alias pb="pnpm run build"
 
-# emacs
-alias emacs="emacsclient -c -a 'emacs'"
-alias em="emacsclient -c -a 'emacs'"
-
 k() {
   if [[ $1 == clean || $1 == cl ]]; then
     ~/.config/zsh/scripts/clean_system.sh
-  elif [[ $1 == wiki || $1 == wi ]]; then
-    ~/.config/zsh/scripts/wiki.sh
-  elif [[ $1 == music || $1 == mu ]]; then
-    ~/.config/zsh/scripts/songs.sh
-  fi
-
-  # check if program installed 
-  if ! [[ -x "/usr/bin/ffmpeg" ]]; then
-      echo "ffmpeg isn't installed. Exiting.."
-      return
-  fi
-  if [[ $1 == piggy ]]; then
-    ffplay ~/.config/zsh/assets/piggy.opus
   fi
 }
 
@@ -137,7 +123,7 @@ st() {
     bash start.sh
     cd $currentDir
   else
-    nvim .
+    lvim .
     cd $currentDir
   fi
 }
@@ -152,3 +138,4 @@ xset r rate 250
 
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
+eval "$(thefuck --alias)"
