@@ -12,10 +12,7 @@
 	// Choose the order of the modules
 	"modules-left": [
 		// "custom/media",
-		// "cpu",
 		"wlr/taskbar",
-		// "memory",
-		// "temperature",
 		"hyprland/workspaces",
 	],
 	"modules-center": [
@@ -28,6 +25,9 @@
 		// "mpd",
 		// "idle_inhibitor",
 		"pulseaudio",
+		"cpu",
+		"memory",
+		"temperature",
 		"network",
 		// "backlight",
 		// "keyboard-state",
@@ -36,23 +36,6 @@
 		// "battery#bat2",
 		// "tray"
 	],
-	// Modules configuration
-	// "sway/workspaces": {
-	//	 "disable-scroll": true,
-	//	 "all-outputs": true,
-	//	 "warp-on-scroll": false,
-	//	 "format": "{name}: {icon}",
-	//	 "format-icons": {
-	//		 "1": "",
-	//		 "2": "",
-	//		 "3": "",
-	//		 "4": "",
-	//		 "5": "",
-	//		 "urgent": "",
-	//		 "focused": "",
-	//		 "default": ""
-	//	 }
-	// },
 	"network": {
 		"tooltip": true,
 		"format-wifi": " ",
@@ -162,8 +145,8 @@
 		}
 	},
 	"cpu": {
-		// "format": "   {usage}%",
-		"tooltip": false
+		"format": "    {usage}%",
+		"tooltip": true
 	},
 	"memory": {
 		"format": "   {}%"
@@ -216,15 +199,6 @@
 	"battery#bat2": {
 		"bat": "BAT2"
 	},
-	// "network": {
-	// 	// "interface": "wlp2*", // (Optional) To force the use of this interface
-	// 	"format-wifi": "{essid} ({signalStrength}%) ",
-	// 	"format-ethernet": "{ipaddr}/{cidr} ",
-	// 	"tooltip-format": "{ifname} via {gwaddr} ",
-	// 	"format-linked": "{ifname} (No IP) ",
-	// 	"format-disconnected": "Disconnected ⚠",
-	// 	"format-alt": "{ifname}: {ipaddr}/{cidr}"
-	// },
 	"pulseaudio": {
 		// "scroll-step": 1, // %, can be a float
 		"format": "{icon}    {volume}%  {format_source}",
@@ -248,18 +222,6 @@
 		},
 		"on-click": "pavucontrol"
 	},
-	// "custom/media": {
-	// 	"format": "{icon} {}",
-	// 	"return-type": "json",
-	// 	"max-length": 40,
-	// 	"format-icons": {
-	// 		"spotify": "",
-	// 		"default": "🎜"
-	// 	},
-	// 	// "escape": true,
-	// 	"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-	// 	// "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-	// },
 	"custom/media": {
 		"exec": "/usr/bin/python3 $HOME/.config/waybar/mediaplayer.py 2> /dev/null",
 		"format": "{icon}    {}",
