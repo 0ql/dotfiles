@@ -101,7 +101,7 @@ button:hover {
 	border-radius: 20px 0px 0px 20px;
 }
 
-#memory, #cpu, #temperature, #network {
+#memory, #cpu, #temperature, #network, #battery, #keyboard-state {
 	background-color: @main-bg;
 	padding: 3px 20px;
 	margin: 4px 0px;
@@ -154,11 +154,6 @@ button:hover {
 /* .modules-right > widget:last-child > #workspaces { */
 /* 	margin-right: 0; */
 /* } */
-
-#battery {
-	background-color: #ffffff;
-	color: #000000;
-}
 
 #battery.charging, #battery.plugged {
 	color: #ffffff;
@@ -262,21 +257,6 @@ label:focus {
 
 #mpd.paused {
 	background-color: #51a37a;
-}
-
-#keyboard-state {
-	background: #97e1ad;
-	color: #000000;
-	padding: 0 0px;
-	min-width: 16px;
-}
-
-#keyboard-state > label {
-	padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-	background: rgba(0, 0, 0, 0.2);
 }
 
 #scratchpad {
