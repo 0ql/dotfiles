@@ -101,7 +101,13 @@ button:hover {
 	border-radius: 20px 0px 0px 20px;
 }
 
-#memory, #cpu, #temperature, #network, #battery, #keyboard-state {
+#memory,
+#cpu,
+#temperature,
+#network,
+#battery,
+#custom-weather,
+#keyboard-state {
 	background-color: @main-bg;
 	padding: 3px 20px;
 	margin: 4px 0px;
@@ -134,12 +140,15 @@ button:hover {
 #pulseaudio,
 #wireplumber,
 #custom-media,
+#custom-stock,
+#custom-pango_test,
 #tray,
 #mode,
 #idle_inhibitor,
 #scratchpad,
 #keyboard-state,
 #language,
+#custom-weather,
 #mpd {
 	padding: 0 10px;
 	color: #ffffff;
@@ -155,7 +164,8 @@ button:hover {
 /* 	margin-right: 0; */
 /* } */
 
-#battery.charging, #battery.plugged {
+#battery.charging,
+#battery.plugged {
 	color: #ffffff;
 	background-color: #26A65B;
 }
@@ -201,7 +211,7 @@ label:focus {
 
 #custom-media {
 	padding: 3px 20px;
-	margin: 4px 20px;
+	margin: 4px 20px 4px 0;
 	background-color: @main-bg;
 	color: white;
 	border-radius: 20px;
@@ -216,6 +226,22 @@ label:focus {
 	background-color: #ffa000;
 }
 
+#custom-stock {
+	padding: 3px 20px;
+	margin: 4px 20px 4px 0;
+	background-color: @main-bg;
+	color: white;
+	border-radius: 20px;
+}
+
+#custom-pango_test {
+	padding: 3px 20px;
+	margin: 4px 20px 4px 0;
+	background-color: @main-bg;
+	color: white;
+	border-radius: 20px;
+}
+
 #temperature.critical {
 	background-color: #eb4d4b;
 }
@@ -224,11 +250,11 @@ label:focus {
 	background-color: #2980b9;
 }
 
-#tray > .passive {
+#tray>.passive {
 	-gtk-icon-effect: dim;
 }
 
-#tray > .needs-attention {
+#tray>.needs-attention {
 	-gtk-icon-effect: highlight;
 	background-color: #eb4d4b;
 }

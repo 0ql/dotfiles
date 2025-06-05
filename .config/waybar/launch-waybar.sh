@@ -1,11 +1,11 @@
 #!/bin/bash
 
-CONFIG_FILES="./config.jsonc ./style.css"
+CONFIG_FILES="$HOME/.config/waybar/config.jsonc $HOME/.config/waybar/style.css $HOME/.config/waybar/stock_screener.py"
 
 trap "killall waybar" EXIT
 
 while true; do
-	waybar -c ./config.jsonc -s ./style.css &
+	waybar &
 	inotifywait -e create,modify $CONFIG_FILES
 	killall waybar
 done

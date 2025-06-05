@@ -16,14 +16,18 @@ bindkey '5~' kill-word
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-# Yank to the system clipboard
-# function vi-yank-xclip {
-#     zle vi-yank
-#    echo "$CUTBUFFER" | pbcopy -i
-# }
+# vi mode
+bindkey -v
 
-# zle -N vi-yank-xclip
-# bindkey -M vicmd 'y' vi-yank-xclip
+# Yank to the system clipboard
+function vi-yank-xclip {
+	zle vi-yank
+	echo "$CUTBUFFER" | wl-copy
+}
+
+zle -N vi-yank-xclip
+bindkey -M vicmd 'y' vi-yank-xclip
+
 export KEYTIMEOUT=1
 
 # Replace ls with exa
@@ -112,26 +116,17 @@ k() {
   fi
 }
 
-st() {
-  currentDir=$PWD
-  if ! [[ -d ~/code/$1 ]]; then
-    echo "(~/code/$1) doesn't exist. Exiting.."
-    return
-  fi
-  cd ~/code/$1
-  if [[ -f "./start.sh" ]]; then
-    bash start.sh
-    cd $currentDir
-  else
-    lvim .
-    cd $currentDir
-  fi
-}
+# pyenv
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
 # Plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# source /usr/share/zsh/plugins/zsh-shift-select/zsh-shift-select.plugin.zsh
+# source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
 
 # 250 mills of timeout when pressed a button
 xset r rate 250
@@ -139,3 +134,4 @@ xset r rate 250
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
 eval "$(thefuck --alias)"
+# source /usr/share/nvm/init-nvm.sh

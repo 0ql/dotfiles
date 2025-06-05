@@ -20,19 +20,22 @@
 		"clock"
 	],
 	"modules-right": [
+		"custom/stock",
 		"custom/media",
 		// "custom/media",
 		// "mpd",
 		// "idle_inhibitor",
 		"pulseaudio",
+		// "bluetooth",
+		"custom/weather",
 		"cpu",
 		"memory",
 		"temperature",
 		"network",
-		"battery",
-		// "backlight",
-		"keyboard-state",
 		"hyprland/language"
+		// "backlight",
+		// "keyboard-state",
+		// "battery",
 		// "battery#bat2",
 		// "tray"
 	],
@@ -52,9 +55,9 @@
 		"on-click": "~/.config/hypr/scripts/keyboardswitch.sh",
 	},
 	"keyboard-state": {
-		"numlock": false,
+		"numlock": true,
 		"capslock": true,
-		"format": "<span font='8' rise='-200'>{icon}</span>",
+		"format": "{name} {icon}",
 		"format-icons": {
 			"locked": "",
 			"unlocked": ""
@@ -122,8 +125,8 @@
 		"timezone": "Europe/Berlin",
 		// "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
 		// "format-alt": "{:%Y-%m-%d}"
-		"format": "   {:%R}",
-		"format-alt": "    {:%R   󰃭   %a  %d }",
+		"format": "   {:%R}",
+		"format-alt": "   {:%R   󰃭   %a  %d }",
 		"tooltip-format": "<tt>{calendar}</tt>",
 		"calendar": {
 			"mode": "month",
@@ -182,10 +185,10 @@
 			"warning": 30,
 			"critical": 15
 		},
-		"format": "{icon}    {capacity}%",
-		"format-charging": "<span font='12' rise='-1000'>󰂄</span>    {capacity}%",
-		"format-plugged": "    {capacity}%",
-		"format-alt": "{icon}    {time}",
+		"format": "{capacity}% {icon}",
+		"format-charging": "{capacity}% ",
+		"format-plugged": "{capacity}% ",
+		"format-alt": "{time} {icon}",
 		// "format-good": "", // An empty format will hide the module
 		// "format-full": "",
 		"format-icons": [
@@ -222,18 +225,42 @@
 		},
 		"on-click": "pavucontrol"
 	},
+	"bluetooth": {
+		// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+		"format": " {status}",
+		"format-disabled": "", // an empty format will hide the module
+		"format-connected": " {num_connections} connected",
+		"tooltip-format": "{controller_alias}\t{controller_address}",
+		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+	},
 	"custom/media": {
 		"exec": "/usr/bin/python3 $HOME/.config/waybar/mediaplayer.py 2> /dev/null",
-		"format": "{icon}    {}",
+		"format": "{icon} {text}",
 		"escape": true,
 		"return-type": "json",
 		"max-length": 40,
 		"format-icons": {
 			"spotify": "<span font='12' rise='-1000'></span>",
-			"default": "<span font='12' rise='-1000'></span> "
+			"default": "<span font='10' rise='1000'>🎜</span> "
 		},
 		"on-click": "playerctl play-pause",
 		"on-scroll-up": "playerctl next",
 		"on-scroll-down": "playerctl previous"
+	},
+	"custom/stock": {
+		"exec": "$HOME/.config/waybar/.venv/bin/python $HOME/.config/waybar/stock_screener.py",
+		// "on-click": "xdg-open https://localhost:5000/",
+		"on-click": "$HOME/.config/waybar/.venv/bin/python $HOME/.config/waybar/fetch_portfolio.py",
+		"return-type": "json",
+		// "max-length": 40,
+		"markup": "pango"
+	},
+	"custom/weather": {
+		"interval": 600,
+		"exec": "~/.config/waybar/wttr.sh duesseldorf",
+		"return-type": "json",
+		"format": "{}",
+		"tooltip": true
 	},
 }

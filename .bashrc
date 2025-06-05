@@ -12,9 +12,3 @@ hypr() {
 
 	exec Hyprland
 }
-
-xfceee() {
-	cd ~
-
-	exec startxfce4
-}

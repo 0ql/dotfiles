@@ -7,6 +7,9 @@
 lvim.leader = ";"
 lvim.colorscheme = "gruvbox"
 
+-- because of error https://github.com/SmiteshP/nvim-navic/issues/56
+lvim.builtin.breadcrumbs.active = false
+
 lvim.plugins = {
 	{ "ellisonleao/gruvbox.nvim" },
 	{
@@ -38,16 +41,6 @@ lvim.plugins = {
 			})
 		end
 	},
-  {
-    "numToStr/Comment.nvim",
-    config = function()
-      require("lvim.core.comment").setup()
-    end,
-    keys = { { "gc", mode = { "n", "v" } }, { "gb", mode = { "n", "v" } } },
-    event = "User FileOpened",
-    enabled = lvim.builtin.comment.active,
-		commit = "e30b7f2", -- use latest version to support hyprland conf files
-  },
 }
 
 -- Below config is required to prevent copilot overriding Tab with a suggestion
@@ -80,32 +73,11 @@ lvim.keys.normal_mode["d"] = '"_d'
 lvim.keys.visual_mode["d"] = '"_d'
 
 vim.cmd [[
-  au BufRead,BufNewFile *.astro set filetype=astro
-  au BufRead,BufNewFile *.rasi set filetype=css
-  au BufRead,BufNewFile *.pamm set filetype=markdown
-  au BufRead,BufNewFile *.gohtml set filetype=html
-  au BufRead,BufNewFile *.inc set filetype=html
-  au BufRead,BufNewFile *.md LvimToggleFormatOnSave
   inoremap kj <C-\><C-n>
   inoremap jk <C-\><C-n>
   tnoremap jk <C-\><C-n>
   tnoremap kj <C-\><C-n>
+  xnoremap q <Esc>
+  xnoremap q <Esc>
 	command! TZ term zsh
 ]]
-
-vim.filetype.add({
-	pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
-})
-
--- Hyprlang LSP
-vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
-	pattern = { "*.hl", "hypr*.conf" },
-	callback = function(event)
-		-- print(string.format("starting hyprls for %s", vim.inspect(event)))
-		vim.lsp.start {
-			name = "hyprlang",
-			cmd = { "hyprls" },
-			root_dir = vim.fn.getcwd(),
-		}
-	end
-})
