@@ -1,0 +1,11 @@
+{
+	"custom/sunset": {
+		"format": "<span font='10' rise='2000'> </span>  {}",
+		"exec": "hyprctl hyprsunset temperature",
+		"on-scroll-up": "hyprctl hyprsunset temperature +500 && pkill -RTMIN+5 waybar",
+		"on-scroll-down": "hyprctl hyprsunset temperature -500 && pkill -RTMIN+5 waybar",
+		"signal": 5
+		// // "on-scroll-up": "hyprctl hyprsunset gamma +10",
+		// "on-scroll-down": "hyprctl hyprsunset gamma -10",
+	}
+}

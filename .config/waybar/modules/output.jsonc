@@ -1,0 +1,18 @@
+{
+  "custom/output": {
+    "format": "󰓃  {}",
+    "exec": "~/.local/bin/audio-output status",
+    "interval": 5,
+    "signal": 6,
+    "tooltip-format": "Click to choose audio output",
+    "menu": "on-click",
+    "menu-file": "/home/kaffee/.config/waybar/modules/output-menu.xml",
+    "menu-actions": {
+      "sink0": "~/.local/bin/audio-output set alsa_output.pci-0000_01_00.1.hdmi-stereo",
+      "sink1": "~/.local/bin/audio-output set alsa_output.usb-1532_Razer_BlackShark_V2_Pro_2.4_O001000007-00.analog-stereo",
+      "sink2": "~/.local/bin/audio-output set alsa_output.usb-Generic_MZ-631_USB_Speaker_Bar_20170726905923-00.analog-stereo",
+      "sink3": "~/.local/bin/audio-output set alsa_output.pci-0000_00_1f.3.iec958-stereo"
+    },
+    "sinks": "alsa_output.pci-0000_01_00.1.hdmi-stereo\nalsa_output.usb-1532_Razer_BlackShark_V2_Pro_2.4_O001000007-00.analog-stereo\nalsa_output.usb-Generic_MZ-631_USB_Speaker_Bar_20170726905923-00.analog-stereo\nalsa_output.pci-0000_00_1f.3.iec958-stereo"
+  }
+}

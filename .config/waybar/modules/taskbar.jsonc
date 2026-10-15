@@ -1,0 +1,10 @@
+{
+	"wlr/taskbar": {
+		"icon-size": 22,
+		"on-click": "activate",
+		"on-click-middle": "close",
+		"icon-theme": "Tela-circle-dracula",
+		"spacing": 0,
+		"tooltip-format": "{title}",
+	},
+}

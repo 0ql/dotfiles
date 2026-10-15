@@ -95,7 +95,6 @@ alias gc="git commit -m $1"
 alias gch="git checkout $1"
 
 #  convienience
-# alias fuck="sudo $(fc -ln -1)"
 alias cls="clear && ls"
 alias cl="clear"
 l() {

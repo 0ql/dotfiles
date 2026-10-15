@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
-from pandas import os
 import requests
+import os
 import json
 import subprocess
 import urllib3

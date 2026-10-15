@@ -1,0 +1,10 @@
+{
+	"custom/stock": {
+		"exec": "$HOME/.config/waybar/.venv/bin/python $HOME/.config/waybar/stock_screener.py",
+		// "on-click": "xdg-open https://localhost:5000/",
+		"on-click": "$HOME/.config/waybar/.venv/bin/python $HOME/.config/waybar/fetch_portfolio.py",
+		"return-type": "json",
+		// "max-length": 40,
+		"markup": "pango",
+	}
+}

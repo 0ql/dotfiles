@@ -3,7 +3,7 @@
 	/* font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
 	border: none;
 	border-radius: 0px;
-	font-family: "JetBrainsMono Nerd Font";
+	font-family: "FiraCode Nerd Font";
 	font-weight: bold;
 	font-size: 13px;
 	min-height: 10px;
@@ -107,6 +107,9 @@ button:hover {
 #network,
 #battery,
 #custom-weather,
+#custom-output,
+#custom-sunset,
+#custom-gamma,
 #keyboard-state {
 	background-color: @main-bg;
 	padding: 3px 20px;
@@ -149,6 +152,9 @@ button:hover {
 #keyboard-state,
 #language,
 #custom-weather,
+#custom-output,
+#custom-sunset,
+#custom-gamma,
 #mpd {
 	padding: 0 10px;
 	color: #ffffff;

@@ -1,0 +1,27 @@
+{
+	// "backlight": {
+	// 	"device": "intel_backlight",
+	// 	"format": "{percent}% {icon}",
+	// 	"format-icons": [
+	// 		"",
+	// 		"",
+	// 		"",
+	// 		"",
+	// 		"",
+	// 		"",
+	// 		"",
+	// 		"",
+	// 		""
+	// 	]
+	// },
+	"custom/gamma": {
+		"format": "<span font='11' rise='0'>󰌵</span>  {}",
+		"exec": "hyprctl hyprsunset gamma",
+		"on-scroll-up": "hyprctl hyprsunset gamma +5 && pkill -RTMIN+5 waybar",
+		"on-scroll-down": "hyprctl hyprsunset gamma -5 && pkill -RTMIN+5 waybar",
+		"signal": 5,
+		"max-length": 6,
+		// // "on-scroll-up": "hyprctl hyprsunset gamma +10",
+		// "on-scroll-down": "hyprctl hyprsunset gamma -10",
+	}
+}

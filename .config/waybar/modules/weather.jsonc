@@ -1,0 +1,10 @@
+{
+	"custom/weather": {
+		"interval": 600,
+		"exec": "~/.config/waybar/wttr.sh duesseldorf",
+		"return-type": "json",
+		"format": "{}",
+		"tooltip": true,
+		"max-length": 20,
+	}
+}

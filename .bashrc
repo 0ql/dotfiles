@@ -10,5 +10,6 @@ PS1='[\u@\h \W]\$ '
 hypr() {
 	cd ~
 
-	exec Hyprland
+	exec start-hyprland
 }
+export PATH="$PATH:/home/kaffee/.cargo/bin"

@@ -49,8 +49,9 @@ def render_portfolio(portfolio):
             )
             sys.stdout.flush()
             cnt += 1
-            if cnt == 20:
+            if cnt >= 20:
                 positions = create_strings(portfolio)
+                print("Updated positions")
                 cnt = 0
             time.sleep(4)
 

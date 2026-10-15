@@ -1,0 +1,71 @@
+// {
+// "mpd": {
+// 	"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+// 	"format-disconnected": "Disconnected ",
+// 	"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+// 	"unknown-tag": "N/A",
+// 	"interval": 2,
+// 	"consume-icons": {
+// 		"on": " "
+// 	},
+// 	"random-icons": {
+// 		"off": "<span color=\"#f53c3c\"></span> ",
+// 		"on": " "
+// 	},
+// 	"repeat-icons": {
+// 		"on": " "
+// 	},
+// 	"single-icons": {
+// 		"on": "1 "
+// 	},
+// 	"state-icons": {
+// 		"paused": "",
+// 		"playing": ""
+// 	},
+// 	"tooltip-format": "MPD (connected)",
+// 	"tooltip-format-disconnected": "MPD (disconnected)"
+// },
+// "idle_inhibitor": {
+// 	"format": "{icon}",
+// 	"format-icons": {
+// 		"activated": "",
+// 		"deactivated": ""
+// 	}
+// },
+// "tray": {
+// 	// "icon-size": 21,
+// 	"spacing": 10
+// },
+// "battery": {
+// 	"states": {
+// 		// "good": 95,
+// 		"warning": 30,
+// 		"critical": 15
+// 	},
+// 	"format": "{capacity}% {icon}",
+// 	"format-charging": "{capacity}% ",
+// 	"format-plugged": "{capacity}% ",
+// 	"format-alt": "{time} {icon}",
+// 	// "format-good": "", // An empty format will hide the module
+// 	// "format-full": "",
+// 	"format-icons": [
+// 		"",
+// 		"",
+// 		"",
+// 		"",
+// 		""
+// 	]
+// },
+// "battery#bat2": {
+// 	"bat": "BAT2"
+// },
+// "bluetooth": {
+// 	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+// 	"format": " {status}",
+// 	"format-disabled": "", // an empty format will hide the module
+// 	"format-connected": " {num_connections} connected",
+// 	"tooltip-format": "{controller_alias}\t{controller_address}",
+// 	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+// 	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+// },
+// }
