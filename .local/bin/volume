@@ -1,0 +1,12 @@
+#!/bin/sh
+# Usage: volume up|down
+# Changes the volume of the output that is currently playing audio,
+# falling back to the default output. "up" can boost to 150%.
+step=5%
+sink=$(pactl list sinks short | awk '$NF=="RUNNING"{print $2; exit}')
+[ -n "$sink" ] && id=$(pw-cli info "$sink" 2>/dev/null | awk 'NR==1{print $2}')
+[ -z "$id" ] && id=@DEFAULT_AUDIO_SINK@
+case "$1" in
+	up) wpctl set-volume -l 1.5 "$id" "$step+" ;;
+	down) wpctl set-volume "$id" "$step-" ;;
+esac
